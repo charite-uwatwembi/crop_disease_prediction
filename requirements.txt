@@ -1,0 +1,10 @@
+tensorflow
+pandas
+numpy
+matplotlib
+seaborn
+flask
+fastapi
+uvicorn
+docker
+locust
