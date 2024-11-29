@@ -35,16 +35,16 @@ This project was developed using **Python**, **FastAPI**, **TensorFlow/Keras**, 
 
 ### **Home Page**
 
-(screenshots/home-phone.png)
+![Home Page Screenshot](/screenshots/home-phone.png)
 
 ### **Prediction Page**
-![Home Page Screenshot](screenshots/home-dec.png)
+![Home Page Screenshot](/screenshots/home-dec.png)
 
 ### **Retraining Page**
-![Retraining Page Screenshot](screenshots/retrain-dec.png)
+![Retraining Page Screenshot](/screenshots/retrain-dec.png)
 
 ### **Visualization Page**
-![Visualization Page Screenshot](screenshots/visualization.png)
+![Visualization Page Screenshot](/screenshots/visualization.png)
 
 ---
 
