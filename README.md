@@ -35,7 +35,7 @@ This project was developed using **Python**, **FastAPI**, **TensorFlow/Keras**, 
 
 ### **Home Page**
 
-![Home Page Screenshot](screenshots/home-phone.png)
+(screenshots/home-phone.png)
 
 ### **Prediction Page**
 ![Home Page Screenshot](screenshots/home-dec.png)
