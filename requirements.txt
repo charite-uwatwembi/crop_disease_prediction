@@ -8,3 +8,6 @@ fastapi
 uvicorn
 docker
 locust
+scikit-learn
+gunicorn
+python-multipart

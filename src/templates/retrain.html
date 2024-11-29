@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrain Model</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --primary-color-light: rgba(46, 204, 113, 0.6);
+            --secondary-color: #27ae60;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --white: #ffffff;
+            --transition-speed: 0.3s;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 5px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+
+    
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, 
+            rgba(39, 174, 96, 0.2) 0%, 
+            rgba(39, 174, 96, 0.5) 100%);
+
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                var(--primary-color-light) 0%, 
+                rgba(39, 174, 96, 0.6) 100%);
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 5px;
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--white);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all var(--transition-speed) ease;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+
+
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #retrain-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#retrain-form input[type="file"] {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#retrain-form button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#retrain-form button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, 
+                var(--primary-color-light) 0%, 
+                rgba(39, 174, 96, 0.6) 100%);
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #progress-container {
+            display: none;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        #progress-wrapper {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🤖Retrain Model</h1>
+        <nav class="nav-container">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/retrain.html" class="nav-link">Retrain</a>
+            <a href="/visualizations.html" class="nav-link">Visualizations</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Upload New Data</h2>
+            <form id="retrain-form" action="/upload_retrain/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".zip" required>
+                <button type="submit">Upload and Retrain</button>
+            </form>
+            <p id="status-message"></p>
+
+            <!-- Progress Bar -->
+            <div id="progress-container">
+                <div id="progress-wrapper">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Crop Prediction System</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("retrain-form");
+        const statusMessage = document.getElementById("status-message");
+        const progressContainer = document.getElementById("progress-container");
+        const progressBar = document.getElementById("progress-bar");
+
+        form.addEventListener("submit", (event) => {
+            // Prevent form submission to show messages and simulate progress
+            event.preventDefault();
+
+            // Display processing message
+            statusMessage.textContent = "Processing retraining...";
+            statusMessage.style.color = "#4CAF50";
+            progressContainer.style.display = "block";
+            progressBar.style.width = "0%";
+
+            // Simulate epoch-based progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 1; 
+                progressBar.style.width = progress + "%";
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    statusMessage.textContent = "Retraining completed!";
+                    progressBar.style.width = "100%";
+                }
+            }, 1000);
+
+            // After simulating, submit the form to the backend
+            setTimeout(() => {
+                form.submit();
+            }, 11000); // Allow time for the progress bar to complete
+        });
+    </script>
+</body>
+</html>

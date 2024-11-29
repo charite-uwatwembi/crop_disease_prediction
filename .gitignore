@@ -1,0 +1,40 @@
+# Byte-compiled / cached Python files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+*.env
+
+# Large model files
+models/*.keras
+models/*.pkl
+models/*.h5
+
+# Dataset and training data
+data/dataset/
+data/new_data/retrain/
+data/train/
+data/retrain/
+
+# Jupyter notebook checkpoints
+*.ipynb_checkpoints
+
+# Static files (if generated dynamically)
+static/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Docker-related
+*.dockerignore
+
+# Other system files
+.DS_Store
+Thumbs.db
+*.~lock.*
+
+
