@@ -136,17 +136,65 @@ button {
 button:hover {
     background-color: #45a049;
 }
-.visualizations {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+.visualizations-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
 
-.visualizations img {
-  width: 45%; /* Reduced width to 45% */
-  height: auto;
-  padding: 30px; /* Added 10px padding around each image */
-}
+        .visualization-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .visualization-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .visualization-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .visualization-card .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.6);
+            overflow: hidden;
+            width: 100%;
+            height: 0;
+            transition: 0.5s ease;
+        }
+
+        .visualization-card:hover .overlay {
+            height: 30%;
+        }
+
+        .visualization-card .overlay-text {
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            transition: 0.5s ease;
+        }
+
+        .visualization-card:hover .overlay-text {
+            opacity: 1;
+        }
 
 @media (max-width: 600px) {
     header h1 {
@@ -174,11 +222,39 @@ button:hover {
         <section>
             <h2>Insights</h2>
             <p>Graphs and visualizations that make sense of different features in my dataset.</p>
-            <div class="visualizations">
-                <img src="/static/images/samples.png" alt="Samples">
-                <img src="/static/images/classes.png" alt="Classes">
-                <img src="/static/images/confusion.png" alt="Confusion Matrix">
-                <img src="/static/images/graphs.png" alt="Graphs">
+            <div class="visualizations-grid">
+                <div class="visualization-card">
+                    <img src="/static/images/samples.png" alt="Samples">
+                    <div class="overlay"></div>
+                    <div class="overlay-text">
+                        <h3>Sample Distribution</h3>
+                        <p>Detailed view of data samples</p>
+                    </div>
+                </div>
+                <div class="visualization-card">
+                    <img src="/static/images/classes.png" alt="Classes">
+                    <div class="overlay"></div>
+                    <div class="overlay-text">
+                        <h3>Class Distribution</h3>
+                        <p>Breakdown of class representation</p>
+                    </div>
+                </div>
+                <div class="visualization-card">
+                    <img src="/static/images/confusion.png" alt="Confusion Matrix">
+                    <div class="overlay"></div>
+                    <div class="overlay-text">
+                        <h3>Confusion Matrix</h3>
+                        <p>Model performance analysis</p>
+                    </div>
+                </div>
+                <div class="visualization-card">
+                    <img src="/static/images/graphs.png" alt="Graphs">
+                    <div class="overlay"></div>
+                    <div class="overlay-text">
+                        <h3>Performance Graphs</h3>
+                        <p>Comprehensive model metrics</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
