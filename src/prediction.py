@@ -3,7 +3,7 @@ from model import load_trained_model
 import numpy as np
 
 # Load the trained model
-model_path = "../models/crop_disease_model.keras"  # Ensure this path is correct
+model_path = "../models/crop_disease_model.keras"
 model = load_trained_model(model_path)
 
 def predict(image_file):
@@ -13,8 +13,8 @@ def predict(image_file):
     try:
         # Read and preprocess the uploaded image
         img = load_img(image_file, target_size=(128, 128))
-        img_array = img_to_array(img) / 255.0  # Normalize to [0, 1]
-        img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
+        img_array = img_to_array(img) / 255.0
+        img_array = np.expand_dims(img_array, axis=0)
 
         # Perform prediction
         predictions = model.predict(img_array)

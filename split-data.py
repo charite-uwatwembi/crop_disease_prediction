@@ -20,7 +20,7 @@ def split_for_retraining(train_dir, retrain_dir, retrain_split=0.2):
         os.makedirs(os.path.join(retrain_dir, cls), exist_ok=True)
 
     for cls in classes:
-        class_dir = os.path.join(train_dir, cls)  # Path to the class folder
+        class_dir = os.path.join(train_dir, cls)
         images = [os.path.join(class_dir, img) for img in os.listdir(class_dir)]
 
         # Split training data into retrain and remaining
@@ -35,6 +35,6 @@ def split_for_retraining(train_dir, retrain_dir, retrain_split=0.2):
         move_files(retrain_data, os.path.join(retrain_dir, cls))
 
 # Example usage
-train_directory = 'data/dataset/train'  # Your current train directory
-retrain_directory = 'data/dataset/retrain'  # Directory to store data for retraining
+train_directory = 'data/dataset/train'
+retrain_directory = 'data/dataset/retrain'
 split_for_retraining(train_directory, retrain_directory)

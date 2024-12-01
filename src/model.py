@@ -9,7 +9,7 @@ def build_model(num_classes):
     Build the model using MobileNetV2 as the base.
     """
     base_model = MobileNetV2(weights="imagenet", include_top=False, input_shape=(128, 128, 3))
-    base_model.trainable = False  # Freeze the base layers
+    base_model.trainable = False
 
     model = Sequential([
         base_model,

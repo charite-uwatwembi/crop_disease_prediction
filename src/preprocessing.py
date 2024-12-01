@@ -9,8 +9,8 @@ def preprocess_image(image_path, img_size=(128, 128)):
     Resize and normalize a single image.
     """
     img = tf.keras.preprocessing.image.load_img(image_path, target_size=img_size)
-    img_array = tf.keras.preprocessing.image.img_to_array(img) / 255.0  # Normalize to [0, 1]
-    return tf.expand_dims(img_array, 0)  # Add batch dimension
+    img_array = tf.keras.preprocessing.image.img_to_array(img) / 255.0
+    return tf.expand_dims(img_array, 0)
 
 def create_data_generators(data_dir, img_size=(128, 128), batch_size=32):
     """

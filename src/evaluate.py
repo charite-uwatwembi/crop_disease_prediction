@@ -13,7 +13,7 @@ model_path = "../models/crop_disease_model.keras"
 # Add the parent directory of preprocess.py to the Python path
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 
-from preprocess import create_data_generators  # Now import works
+from preprocess import create_data_generators
 
 
 def evaluate_model():
