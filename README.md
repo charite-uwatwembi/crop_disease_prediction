@@ -7,14 +7,7 @@ This project aims to help farmers and agricultural experts efficiently detect cr
 ---
 
 ## 📹 Demo Video
-Watch the video demo here: [YouTube Link (to be added)]()
-
----
-
-## 🌐 URL
-This application is accessible via:
-- Localhost: `http://127.0.0.1:8000`
-- **Deployed URL**: [Link to be added if applicable]()
+Watch the video demo here: [https://www.loom.com/share/53c5f26eade0436aa6c21eb022425748?sid=8733a7d2-12eb-4611-8aa4-9f023350759b]()
 
 ---
 
@@ -45,6 +38,7 @@ This project was developed using **Python**, **FastAPI**, **TensorFlow/Keras**, 
 
 ### **Visualization Page**
 ![Visualization Page Screenshot](/screenshots/visualization.png)
+![Retrain successful Screenshot](/screenshots/retrain.png)
 
 ---
 
