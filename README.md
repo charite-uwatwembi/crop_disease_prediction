@@ -7,7 +7,8 @@ This project aims to help farmers and agricultural experts efficiently detect cr
 ---
 
 ## 📹 Demo Video
-Watch the video demo here: [https://www.loom.com/share/53c5f26eade0436aa6c21eb022425748?sid=8733a7d2-12eb-4611-8aa4-9f023350759b]()
+Watch the video demo here: [https://www.loom.com/share/53c5f26eade0436aa6c21eb022425748?sid=5139eea6-98fb-4a58-9c7c-fab2457117c6]()
+
 
 ---
 
